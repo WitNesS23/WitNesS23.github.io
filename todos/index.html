@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ToDos</title>
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body>
+	<div id="myToDos">
+		<h1>todos</h1>
+		<div id="main">
+			<div id="main_bar">	
+			</div>
+			<div id="main_input">
+				<input type="text" name="inputText" value="What needs to be done?" onkeydown="if(value=='What needs to be done?'){value=''}" onblur="if(value==''){value='What needs to be done?'}" />
+			</div>
+			<div id="main_list">
+				Go Shopping
+				<br />
+				F2E Class
+				<br />
+				HomeWork
+			</div>
+		</div>
+		<div id="footer">
+			Double-click to edit a todo<br />
+			Created by <a href="#">Samaritan89</a>
+		</div>
+	</div>
+</body>
+</html>
