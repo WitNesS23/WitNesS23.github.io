@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>ToDos</title>
 	<link rel="stylesheet" type="text/css" href="styles/style.css">
 </head>
@@ -8,22 +10,39 @@
 	<div id="myToDos">
 		<h1>todos</h1>
 		<div id="main">
-			<div id="main_bar">	
-			</div>
+			<div id="main_bar">	</div>
 			<div id="main_input">
-				<input type="text" name="inputText" value="What needs to be done?" onkeydown="if(value=='What needs to be done?'){value=''}" onblur="if(value==''){value='What needs to be done?'}" />
+				<label class="main_input_logo"></label>
+				<input type="text" placeholder="What needs to be done?" />
 			</div>
 			<div id="main_list">
-				Go Shopping
-				<br />
-				F2E Class
-				<br />
-				HomeWork
+				<ul class="main_list_ul">
+					<li class="main_list_item">
+						<span>Go Shopping</span>
+					</li>
+					<li class="main_list_item done">
+						<span>Finish My Homework</span>
+					</li>
+					<li class="main_list_item">
+						<span>F2E Class</span>
+					</li>
+				</ul>
 			</div>
+			<div class="seperator"></div>
+		</div>
+		<div class="main_btn"></div>
+		<div class="main_sum">
+			<div class="main_sum_left">
+				<span>2</span> items left
+			</div>
+			<div class="main_sum_mid">
+				All <span>Active</span> Completed
+			</div>
+			<input id="btn_clear" type="button" value="Clear completed">
 		</div>
 		<div id="footer">
 			Double-click to edit a todo<br />
-			Created by <a href="#">Samaritan89</a>
+			Created by <a href="#">WitNesS23</a>
 		</div>
 	</div>
 </body>
