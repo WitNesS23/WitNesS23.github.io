@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>iDialog-jQuery</title>
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body><div id="div_backpaper"></div>
+	<input type="button" id="btn_dialog" value="Examples">
+	<div id="div_dialog">
+		<div id="div_dia_header">
+			<span>Tips</span>
+			<input type="button" class="close" value="×">
+		</div>
+		<div id="div_dia_content">
+			<div class="placeholder">Here is a iDialog</div>
+		</div>
+	</div>
+	<div id="content"></div>
+
+	<script type="text/javascript">
+		var input = document.getElementById('btn_dialog');
+		var dialog = document.getElementById('div_dialog');
+		var close = document.getElementsByClassName('close')[0];
+		var backpaper = document.getElementById('div_backpaper');
+
+		input.addEventListener('click', function(e){
+			dialog.style.display = 'block';
+			backpaper.style.display = 'block';
+			e.stopPropagation();
+		},false);
+
+		close.addEventListener('click', function(e){
+			dialog.style.display = "none";
+			backpaper.style.display = 'none';
+		},false);
+
+		dialog.addEventListener('click', function(e){
+			e.stopPropagation();
+		},false);
+
+		document.body.addEventListener('click', function(e){
+			dialog.style.display = "none";
+			backpaper.style.display = 'none';
+		},false);
+
+	</script>
+</body>
