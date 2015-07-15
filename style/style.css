@@ -2,6 +2,7 @@ html,body{
 	width: 100%;
 	height: 100%;
 	/*overflow: hidden;*/
+	font-family: 'Helvetica Neue', Helvetica, Arial, serif
 }
 
 .page-wrap{
@@ -269,7 +270,7 @@ section{
 footer{
 	width: 100%;
 	position: absolute;
-	height: 200px;
+	height: 150px;
 	background-color: #333;
 }
 
@@ -280,31 +281,34 @@ footer{
 
 .user-image{
 	border-radius: 50%;
-	width: 160px;
-	height: 160px;
+	width: 100px;
+	height: 100px;
 	border: 4px solid #171714;
 	background-image: url("http://7xi77s.com1.z0.glb.clouddn.com/ymhd.jpg");
-	background-position: 70% 0;
-	margin-top: 16px;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	margin-top: 21px;
+	margin-left: 20px;
 	cursor: pointer;
 }
 
 .user-contact-way{
 	margin-left: 100px;
-	height: 100px;
+	height: 90px;
 	color: #DFDFDF;
-	margin-top: 50px;
+	margin-top: 30px;
 }
 
 .user-contact-way h3{
-	font-size: 24px;
+	font-size: 20px;
 	font-weight: normal;
 	letter-spacing: -1px;
-	line-height: 30px;
+	line-height: 40px;
 }
 
 .user-contact-way ul{
-	height: 70px;
+	width: 100%;
+	height: 30px;
 	float: left;
 	padding: 0;
 }
@@ -313,17 +317,32 @@ footer{
 	float: left;
 }
 
-.user-contact-way ul li:nth-child(1) a{
-	width: 32px;
-	height: 30px;
-}
-
 .user-contact-way ul li:nth-child(2), .user-contact-way ul li:nth-child(3){
-	margin-left: 50px;
+	margin-left: 19px;
+}
+
+.user-contact-way ul li:nth-child(1) a:hover{
+	color: #A1B2E2;
+}
+
+.user-contact-way ul li:nth-child(2) a:hover{
+	color: #C854F3;
+}
+
+.user-contact-way ul li:nth-child(3) a:hover{
+	color: #E65A5F;
+}
+
+.user-contact-way span{
+	line-height: 15px;
+}
+
+.user-contact-way span a{
+	color: #DFDFDF;
+}
+
+.user-contact-way span a:hover{
+	color: white;
 }
 
 
-
-.user-contact-way ul li a{
-	color: #A8A8A8;
-}
