@@ -153,13 +153,20 @@ function sectionDown() {
 	} else {
 		scrollType = false;
 		$(".page-wrap").animate({
-				'top': '-=' + srcollHeight + "px"
-			},
-			600,
-			function() {
-				showSection++;
-				scrollType = true;
-			});
+			'top': '-=' + srcollHeight + "px"
+		},
+		600,
+		function() {
+			showSection++;
+			scrollType = true;
+		});
+
+		// scrollType = false;
+		// $(".page-wrap").css({
+		// 	'transition' : 'all 600ms',
+		// 	'transform' : "translate3d(" + "0px, " + "-" + srcollHeight + "px, 0px" + ")"
+		// });
+
 	}
 }
 
