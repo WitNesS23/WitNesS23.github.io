@@ -1,11 +1,15 @@
-html,body{
+html, body{
+	overflow: hidden;
 	width: 100%;
 	height: 100%;
-	/*overflow: hidden;*/
-	font-family: 'Helvetica Neue', Helvetica, Arial, serif
+}
+
+body{
+	font-family: 'Helvetica Neue', Helvetica, Arial, serif;
 }
 
 .page-wrap{
+	position: relative;
 	width: 100%;
 	height: 100%;
 }
@@ -81,6 +85,11 @@ header li a:hover .btn-ham-wrap div{
 
 .btn-ham-wrap div:last-child{
 	margin-top: 4px;
+	/*-webkit-transition:all .2s ease-in-out;
+    -moz-transition:all .2s ease-in-out;
+    -o-transition:all .2s ease-in-out;
+    -ms-transition:all .2s ease-in-out;    
+    transition:all .2s ease-in-out;*/
 }
 
 .btn-ham-wrap div:first-child{
@@ -90,20 +99,24 @@ header li a:hover .btn-ham-wrap div{
 .menu{
 	width: 20%;
 	height: 100%;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 100%;
 	background: white;
 	z-index: 9990;
 	background-color: #333;
+	color: white;
 	opacity: 0.3;
 }
 
 section{
 	width: 100%;
+	display: block;
+	position: relative;
 	height: 100%;
-	display: absolute;
 }
+
+/* 欢迎页面CSS演样式 */
 
 .sec-welcome{
 	background-color: black;
@@ -207,6 +220,18 @@ section{
 	-webkit-transform:rotate(-45deg); /* Safari and Chrome */
 }
 
+/* 技能树页面样式表 */
+.sec-skilltree{
+	background-color: #61639E;
+	left: 0;
+}
+
+/* 作品展示页面样式表 */
+.sec-showwork{
+	background-color: #4679D2;
+	left: 0;
+}
+
 @keyframes rotateR {
   from {
     -moz-transform: translateY(0px) rotate(0);
@@ -265,6 +290,18 @@ section{
     -webkit-transform: translateY(0px) rotate(0);
     transform: translateY(0px) rotate(0);
   }
+}
+
+.btn-ham-wrap div:last-child.rotateL-addClass{
+	-webkit-transition:all 1s ease-in-out;
+    -moz-transition:all 1s ease-in-out;
+    -o-transition:all 1s ease-in-out;
+    -ms-transition:all 1s ease-in-out;    
+    transition:all 1s ease-in-out;
+	-moz-transform: translateY(-7px) rotate(-45deg);
+    -ms-transform: translateY(-7px) rotate(-45deg);
+    -webkit-transform: translateY(-7px) rotate(-45deg);
+    transform: translateY(-7px) rotate(-45deg);
 }
 
 footer{
