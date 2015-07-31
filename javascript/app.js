@@ -95,7 +95,7 @@ function hideMenu() {
 }
 
 function linksChange(){
-	console.log((document.styleSheets[1].rules || document.styleSheets[1].cssRules).length);
+	console.log(document.styleSheets[1].cssRules);
 }
 
 function linksChangeHandler(index, colorHover){
