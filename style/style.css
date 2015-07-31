@@ -11,7 +11,7 @@ body{
 .page-wrap{
 	position: relative;
 	width: 100%;
-	height: 100%;
+	height: 400%;
 }
 
 header{
@@ -96,24 +96,99 @@ header li a:hover .btn-ham-wrap div{
 	margin-bottom: 4px;
 }
 
+/* 右侧菜单栏 */
+
 .menu{
 	width: 20%;
 	height: 100%;
 	position: fixed;
 	top: 0;
 	left: 100%;
-	background: white;
 	z-index: 9990;
-	background-color: #333;
+	background-color: rgba(33,33,33,0.3);
 	color: white;
-	opacity: 0.3;
+}
+
+.menu-wrap{
+	margin-top: 50px;
+}
+
+.menu-wrap img{
+	border-radius: 50%;
+	width: 130px;
+	height: 130px;
+	border: 4px solid rgba(17,17,14,0.3);
+	margin: 0 auto;
+	display: block;
+	margin-top: 5px;
+	transition: 0.3s all;
+	cursor: pointer;
+}
+
+.menu-wrap img:hover{
+	transform: scale(1.1, 1.1);
+}
+
+.menu-wrap h2{
+	font: 16px/1.5 "微软雅黑";
+	text-align: center;
+}
+
+.menu-wrap h2:nth-child(2){
+	margin-top: 20px;
+}
+
+.links-wrap{
+	overflow: hidden;
+	width: 124px;
+	margin: 0 auto;
+	margin-top: 15px;
+}
+
+.links-wrap li{
+	font-size: 25px;
+	float: left;
+	margin: 0 8px;
+}
+
+.links-wrap li a{
+	color: white;
+}
+
+.links-wrap li:nth-child(1) a:hover{
+	color: #A1B2E2;
+}
+
+.links-wrap li:nth-child(2) a:hover{
+	color: #C854F3;
+}
+
+.links-wrap li:nth-child(3) a:hover{
+	color: #E65A5F;
+}
+
+.nav-wrap{
+	margin-top: 30px;
+}
+
+.nav-wrap li{
+	font-family: 'Comic Sans MS', cursive;
+	color: #E0E5F5;
+	font-size: 18px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+}
+
+.nav-wrap li a:hover{
+	cursor: pointer;
 }
 
 section{
 	width: 100%;
 	display: block;
 	position: relative;
-	height: 100%;
+	height: 25%;
 }
 
 /* 欢迎页面CSS演样式 */
@@ -307,6 +382,11 @@ section{
 footer{
 	width: 100%;
 	position: absolute;
+	left: 0;
+	bottom: 0;
+	border: 0;
+	margin: 0;
+	padding: 0;
 	height: 150px;
 	background-color: #333;
 }
@@ -358,17 +438,7 @@ footer{
 	margin-left: 19px;
 }
 
-.user-contact-way ul li:nth-child(1) a:hover{
-	color: #A1B2E2;
-}
 
-.user-contact-way ul li:nth-child(2) a:hover{
-	color: #C854F3;
-}
-
-.user-contact-way ul li:nth-child(3) a:hover{
-	color: #E65A5F;
-}
 
 .user-contact-way span{
 	line-height: 15px;

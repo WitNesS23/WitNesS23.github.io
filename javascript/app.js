@@ -25,7 +25,11 @@ $(document).on('click', 'section', function(event) {
 function showMenu() {
 	$(".menu").animate({
 		left: '80%'
-	}, 1000);
+	}, 1000, function(){
+		// links按钮变化效果
+		// 菜单折叠变化效果
+		linksChange();
+	});
 
 	$(".btn-ham-wrap div:last-child").animate({
 		textIndent: 0
@@ -90,6 +94,28 @@ function hideMenu() {
 	}, 1000);
 }
 
+function linksChange(){
+	console.log((document.styleSheets[1].rules || document.styleSheets[1].cssRules).length);
+}
+
+function linksChangeHandler(index, colorHover){
+	this.find('a').animate({
+		textIndent: 0}, {
+			step : function(now, fx){
+				$(this).css('color', colorHover);
+			},
+			duration: '400',
+			complete: function() {
+				$(this).css('color', 'white');
+				$(this).hover(function() {
+					$(this).css('color', colorHover);
+				}, function() {
+					$(this).css('color', 'white');
+				});
+			}
+		});
+}
+
 // 浏览器兼容性问题
 var isFF = navigator.userAgent.toLowerCase().indexOf("firefox") >= 0;
 
@@ -134,6 +160,7 @@ function changeSection(e) {
 }
 
 // 代码优化 避免浏览器判断
+// $(document).on("mousewheel DOMMouseScroll", changeSection);
 // function changeSection(e) {
 // 	if(scrollType) {
 // 		e = e || event;
@@ -153,7 +180,7 @@ function sectionDown() {
 	} else {
 		scrollType = false;
 		$(".page-wrap").animate({
-			'top': '-=' + srcollHeight + "px"
+			'top': '-=' + srcollHeight
 		},
 		600,
 		function() {
