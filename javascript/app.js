@@ -95,7 +95,13 @@ function hideMenu() {
 }
 
 function linksChange(){
-	console.log(document.styleSheets[1].cssRules);
+	var cssrules = document.styleSheets[1].cssRules || document.styleSheets[1].rules;
+	var arr_links = [];
+	for (var i = cssrules.length - 1; i >= 0; i--) {
+		if(cssrules[i].selectorText.indexOf(".links-wrap li:nth-child") > 0){
+
+		}
+	};
 }
 
 function linksChangeHandler(index, colorHover){
