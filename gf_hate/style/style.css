@@ -26,6 +26,8 @@
 	position: absolute;
 	z-index: 1;
 	box-shadow: 0 0 1px rgba(0,0,0,.01);
+
+	-webkit-transition: all 0.6s;
 }
 
 /* 负责翻转 */
@@ -111,4 +113,84 @@
 	margin-top: -160px;
 	margin-left: -130px;
 	z-index: 999;
+}
+
+/* 控制按钮样式 */
+@font-face{
+	font-family: 'icons';
+	src: url('icons.woff') format('woff');
+	font-weight: normal;
+	font-size: normal;
+}
+
+.nav{
+	width: 80%;
+	height: 30px;
+	line-height: 30px;
+	position: absolute;
+	text-align: center;
+	left: 10%;
+	bottom: 20px;
+	z-index: 999;
+	background-color: transparent;
+}
+
+/* 普通样式 */
+.nav .i{
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	cursor: pointer;
+	background-color: #aaa;
+	border-radius: 50%;
+
+	-webkit-transform: scale(.48);
+	transform: scale(.48);
+	-webkit-transition: all 0.5s;
+}
+
+.nav .i:after{
+	content: "\e600";
+	font-family: 'icons';
+	font-size: 80%;
+	display: inline-block;
+	line-height: 30px;
+	text-align: center;
+	color: #fff;
+	opacity: 0;
+}
+
+
+/* 选中样式 */
+.nav .i_current{
+	-webkit-transform: scale(1);
+}
+
+.nav .i_current:after{
+	opacity: 1;
+}
+
+/* 背面样式 */
+.nav .i_back{
+	-webkit-transform: rotateY(-180deg);
+	background-color: #555;
+}
+
+/* 优化样式 */
+.photo{
+	left: 50%;
+	top: 50%;
+	margin:-160px 0 0 -130px;
+}
+
+.photo-wrap{
+	-webkit-transform-origin: 0% 50%;
+}
+
+.photo_front .photo-wrap{
+	-webkit-transform: translate(0px, 0px) rotateY(0deg);
+}
+
+.photo_back .photo-wrap{
+	-webkit-transform: translate(260px, 0px) rotateY(180deg);
 }
