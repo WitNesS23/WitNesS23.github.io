@@ -1,3 +1,16 @@
+/*
+	结构组成如下
+	
+	1. 默认初始值；
+	2. 导航条部分；
+	3. menu 部分；
+	4. 欢迎页面；
+	5. 技能树页面；
+	6. 作品展示页面；
+	7. 请联系我页面；
+*/
+
+/* 默认初识值 */
 html, body{
 	overflow: hidden;
 	width: 100%;
@@ -14,6 +27,7 @@ body{
 	height: 400%;
 }
 
+/* 导航条部分 */
 header{
 	position: fixed;
 	top: 0;
@@ -96,8 +110,7 @@ header li a:hover .btn-ham-wrap div{
 	margin-bottom: 4px;
 }
 
-/* 右侧菜单栏 */
-
+/* menu 部分 */
 .menu{
 	width: 20%;
 	height: 100%;
@@ -184,6 +197,78 @@ header li a:hover .btn-ham-wrap div{
 	cursor: pointer;
 }
 
+@keyframes rotateR {
+  from {
+    -moz-transform: translateY(0px) rotate(0);
+    -ms-transform: translateY(0px) rotate(0);
+    -webkit-transform: translateY(0px) rotate(0);
+    transform: translateY(0px) rotate(0);
+  }
+  to {
+    -moz-transform: translateY(7px) rotate(45deg);
+    -ms-transform: translateY(7px) rotate(45deg);
+    -webkit-transform: translateY(7px) rotate(45deg);
+    transform: translateY(7px) rotate(45deg);
+  }
+}
+
+@keyframes rotateL {
+  from {
+    -moz-transform: translateY(0px) rotate(0);
+    -ms-transform: translateY(0px) rotate(0);
+    -webkit-transform: translateY(0px) rotate(0);
+    transform: translateY(0px) rotate(0);
+  }
+  to {
+    -moz-transform: translateY(-7px) rotate(-45deg);
+    -ms-transform: translateY(-7px) rotate(-45deg);
+    -webkit-transform: translateY(-7px) rotate(-45deg);
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
+@keyframes rotateR_back {
+  from {
+    -moz-transform: translateY(7px) rotate(45deg);
+    -ms-transform: translateY(7px) rotate(45deg);
+    -webkit-transform: translateY(7px) rotate(45deg);
+    transform: translateY(7px) rotate(45deg);
+  }
+  to {
+    -moz-transform: translateY(0px) rotate(0);
+    -ms-transform: translateY(0px) rotate(0);
+    -webkit-transform: translateY(0px) rotate(0);
+    transform: translateY(0px) rotate(0);
+  }
+}
+
+@keyframes rotateL_back {
+  from {
+    -moz-transform: translateY(-7px) rotate(-45deg);
+    -ms-transform: translateY(-7px) rotate(-45deg);
+    -webkit-transform: translateY(-7px) rotate(-45deg);
+    transform: translateY(-7px) rotate(-45deg);
+  }
+  to {
+    -moz-transform: translateY(0px) rotate(0);
+    -ms-transform: translateY(0px) rotate(0);
+    -webkit-transform: translateY(0px) rotate(0);
+    transform: translateY(0px) rotate(0);
+  }
+}
+
+.btn-ham-wrap div:last-child.rotateL-addClass{
+	-webkit-transition:all 1s ease-in-out;
+    -moz-transition:all 1s ease-in-out;
+    -o-transition:all 1s ease-in-out;
+    -ms-transition:all 1s ease-in-out;    
+    transition:all 1s ease-in-out;
+	-moz-transform: translateY(-7px) rotate(-45deg);
+    -ms-transform: translateY(-7px) rotate(-45deg);
+    -webkit-transform: translateY(-7px) rotate(-45deg);
+    transform: translateY(-7px) rotate(-45deg);
+}
+
 section{
 	width: 100%;
 	display: block;
@@ -191,8 +276,7 @@ section{
 	height: 25%;
 }
 
-/* 欢迎页面CSS演样式 */
-
+/* 欢迎页面 */
 .sec-welcome{
 	background-color: black;
 	background-image: url("http://7xi77s.com1.z0.glb.clouddn.com/main_bg2.jpg");
@@ -295,88 +379,16 @@ section{
 	-webkit-transform:rotate(-45deg); /* Safari and Chrome */
 }
 
-/* 技能树页面样式表 */
+/* 技能树页面 */
 .sec-skilltree{
 	background-color: #61639E;
 	left: 0;
 }
 
-/* 作品展示页面样式表 */
+/* 作品展示页面 */
 .sec-showwork{
 	background-color: #4679D2;
 	left: 0;
-}
-
-@keyframes rotateR {
-  from {
-    -moz-transform: translateY(0px) rotate(0);
-    -ms-transform: translateY(0px) rotate(0);
-    -webkit-transform: translateY(0px) rotate(0);
-    transform: translateY(0px) rotate(0);
-  }
-  to {
-    -moz-transform: translateY(7px) rotate(45deg);
-    -ms-transform: translateY(7px) rotate(45deg);
-    -webkit-transform: translateY(7px) rotate(45deg);
-    transform: translateY(7px) rotate(45deg);
-  }
-}
-
-@keyframes rotateL {
-  from {
-    -moz-transform: translateY(0px) rotate(0);
-    -ms-transform: translateY(0px) rotate(0);
-    -webkit-transform: translateY(0px) rotate(0);
-    transform: translateY(0px) rotate(0);
-  }
-  to {
-    -moz-transform: translateY(-7px) rotate(-45deg);
-    -ms-transform: translateY(-7px) rotate(-45deg);
-    -webkit-transform: translateY(-7px) rotate(-45deg);
-    transform: translateY(-7px) rotate(-45deg);
-  }
-}
-
-@keyframes rotateR_back {
-  from {
-    -moz-transform: translateY(7px) rotate(45deg);
-    -ms-transform: translateY(7px) rotate(45deg);
-    -webkit-transform: translateY(7px) rotate(45deg);
-    transform: translateY(7px) rotate(45deg);
-  }
-  to {
-    -moz-transform: translateY(0px) rotate(0);
-    -ms-transform: translateY(0px) rotate(0);
-    -webkit-transform: translateY(0px) rotate(0);
-    transform: translateY(0px) rotate(0);
-  }
-}
-
-@keyframes rotateL_back {
-  from {
-    -moz-transform: translateY(-7px) rotate(-45deg);
-    -ms-transform: translateY(-7px) rotate(-45deg);
-    -webkit-transform: translateY(-7px) rotate(-45deg);
-    transform: translateY(-7px) rotate(-45deg);
-  }
-  to {
-    -moz-transform: translateY(0px) rotate(0);
-    -ms-transform: translateY(0px) rotate(0);
-    -webkit-transform: translateY(0px) rotate(0);
-    transform: translateY(0px) rotate(0);
-  }
-}
-
-.btn-ham-wrap div:last-child.rotateL-addClass{
-	-webkit-transition:all 1s ease-in-out;
-    -moz-transition:all 1s ease-in-out;
-    -o-transition:all 1s ease-in-out;
-    -ms-transition:all 1s ease-in-out;    
-    transition:all 1s ease-in-out;
-	-moz-transform: translateY(-7px) rotate(-45deg);
-    -ms-transform: translateY(-7px) rotate(-45deg);
-    -webkit-transform: translateY(-7px) rotate(-45deg);
-    transform: translateY(-7px) rotate(-45deg);
 }
 
 footer{

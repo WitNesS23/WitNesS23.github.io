@@ -110,7 +110,7 @@ function linksChange(){
 	// 调试用数据
 	console.log(arr_links);
 
-	arr_links = []
+	// arr_links = ["161, 178, 226", "200, 84, 243", "230, 90, 95"];
 
 	var delayTime = 0;
 
@@ -123,14 +123,27 @@ function linksChange(){
 		(function(i, _i, i_, _delayTime){
 			setTimeout(function(){
 				if(i !== 0){
-					$(".links-wrap li:nth-child("+ i_ +") a").css('color', 'white');
+					$(".links-wrap li:nth-child("+ i +") a").css('color', 'white').hover(function() {
+						$(this).css('color', 'rgb(' + arr_links[i_] + ')');
+					}, function() {
+						$(this).css('color', 'white');
+					});
 				}
 				$(".links-wrap li:nth-child("+ _i +") a").css('color', 'rgb(' + arr_links[i] + ')');
+
+				if(_i === arr_links.length){
+					setTimeout(function(){
+						$(".links-wrap li:last-child a").css('color', 'white').hover(function() {
+							$(this).css('color', 'rgb(' + arr_links[arr_links.length - 1] + ')');
+						}, function() {
+							$(this).css('color', 'white');
+						});
+					}, 500);
+				}
 			}, _delayTime);
-			delayTime += 1000;
+			delayTime += 500;
 		})(i, _i, i_, delayTime);
 	}
-	$(".links-wrap li:nth-child(1) a").css('color', 'rgb(' + arr_links[0] + ')');
 }
 
 function linksChangeHandler(index, colorHover){
@@ -162,10 +175,25 @@ var scrollType = true;
 
 var srcollHeight = $(window).height();
 
+// 代码优化 避免浏览器判断
+// $(document).on("mousewheel DOMMouseScroll", changeSection);
+// function changeSection(e) {
+// 	if(scrollType) {
+// 		e = e || event;
+// 		e.preventDefault();
+// 		var wheelDirection = e.detail || -e.wheelDelta;
+// 		if(wheelDirection){
+// 			// 向下滚动
+// 		}else{
+// 			// 向上滚动
+// 		}
+// 	}
+// }
+
 if (document.addEventListener) {
 	document.addEventListener('DOMMouseScroll', changeSection, false);
 } //W3C
-window.onmousewheel = document.onmousewheel = changeSection; //IE/Opera/Chrome
+window.onmousewheel = document.onmousewheel = changeSection; //IE/Opera/Chrom
 
 // 滚轮滚动页面变化函数
 function changeSection(e) {
@@ -194,33 +222,18 @@ function changeSection(e) {
 	}
 }
 
-// 代码优化 避免浏览器判断
-// $(document).on("mousewheel DOMMouseScroll", changeSection);
-// function changeSection(e) {
-// 	if(scrollType) {
-// 		e = e || event;
-// 		e.preventDefault();
-// 		var wheelDirection = e.detail || -e.wheelDelta;
-// 		if(wheelDirection){
-// 			// 向下滚动
-// 		}else{
-// 			// 向上滚动
-// 		}
-// 	}
-// }
-
 function sectionDown() {
 	if (maxSection === showSection + 1) {
 		return false;
 	} else {
 		scrollType = false;
 		$(".page-wrap").animate({
-			'top': '-=' + srcollHeight
-		},
-		600,
-		function() {
-			showSection++;
-			scrollType = true;
+				'top': '-=' + srcollHeight
+			},
+			600,
+			function() {
+				showSection++;
+				scrollType = true;
 		});
 
 		// scrollType = false;
@@ -228,7 +241,6 @@ function sectionDown() {
 		// 	'transition' : 'all 600ms',
 		// 	'transform' : "translate3d(" + "0px, " + "-" + srcollHeight + "px, 0px" + ")"
 		// });
-
 	}
 }
 
@@ -244,7 +256,7 @@ function sectionUp() {
 			function() {
 				showSection--;
 				scrollType = true;
-			});
+		});
 	}
 }
 
@@ -259,3 +271,7 @@ function throttle(fn, delay) {
 		}, delay);
 	};
 };
+
+$(".sec-welcome .more-wrap").on('click', function(event){
+	sectionDown();
+});
