@@ -101,12 +101,14 @@ function linksChange(){
 		var _this = cssrules[i];
 		if(_this.selectorText){
 			if(_this.selectorText.indexOf(".links-wrap li:nth-child") == 0){
-				var innerColor = _this.cssText.substring(_this.cssText.indexOf('rgb(') + 4, _this.cssText.indexOf(');') - 1);
+				var innerColor = _this.cssText.substring(_this.cssText.indexOf('rgb(') + 4, _this.cssText.indexOf(');'));
 				arr_links.unshift(innerColor);
 			}
 		}
 	};
-	console.log(arr_links);
+	//console.log(arr_links);
+
+	$(".links-wrap li:nth-child(1) a").css('color', 'rgb(' + arr_links[0] + ')');
 }
 
 function linksChangeHandler(index, colorHover){
