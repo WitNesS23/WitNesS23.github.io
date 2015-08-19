@@ -98,7 +98,7 @@ function linksChange(){
 	var cssrules = document.styleSheets[1].cssRules || document.styleSheets[1].rules || window.CSSRule.STYLE_RULE;
 	var arr_links = [];
 	for (var i = cssrules.length - 1; i >= 0; i--) {
-		var _this = _this;
+		var _this = cssrules[i];
 		if(_this.selectorText){
 			if(_this.selectorText.indexOf(".links-wrap li:nth-child") == 0){
 				var innerColor = _this.cssText.substring(_this.cssText.indexOf('rgb(') + 4, _this.cssText.indexOf(');') - 1);
