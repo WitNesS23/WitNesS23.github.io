@@ -106,7 +106,11 @@ function linksChange(){
 			}
 		}
 	};
-	//console.log(arr_links);
+
+	// 调试用数据
+	console.log(arr_links);
+
+	arr_links = []
 
 	var delayTime = 0;
 
