@@ -108,6 +108,24 @@ function linksChange(){
 	};
 	//console.log(arr_links);
 
+	var delayTime = 0;
+
+	for (var i = 0; i < arr_links.length; i++) {
+		var _i = i + 1,
+			i_ = i;
+		if(i !== 0){
+			i_ = i - 1;
+		}
+		(function(i, _i, i_, _delayTime){
+			setTimeout(function(){
+				if(i !== 0){
+					$(".links-wrap li:nth-child("+ i_ +") a").css('color', 'white');
+				}
+				$(".links-wrap li:nth-child("+ _i +") a").css('color', 'rgb(' + arr_links[i] + ')');
+			}, _delayTime);
+			delayTime += 1000;
+		})(i, _i, i_, delayTime);
+	}
 	$(".links-wrap li:nth-child(1) a").css('color', 'rgb(' + arr_links[0] + ')');
 }
 
