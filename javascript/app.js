@@ -1,3 +1,5 @@
+// 菜单出现消失
+
 var menu_dispaly = false;
 
 $("header nav ul li:last-child a").on('click', function(event) {
@@ -164,6 +166,8 @@ function linksChangeHandler(index, colorHover){
 		});
 }
 
+// 页面整体滚动
+
 // 浏览器兼容性问题
 var isFF = navigator.userAgent.toLowerCase().indexOf("firefox") >= 0;
 
@@ -204,57 +208,90 @@ function changeSection(e) {
 			// 处理Firefox浏览器下情况
 			if (e.detail > 0) {
 				// 向下滚动
-				sectionDown();
+				sectionDown(0);
 			} else {
 				// 向上滚动
-				sectionUp();
+				sectionUp(0);
 			}
 		} else {
 			// 处理其他浏览器下的情况
 			if (e.wheelDelta > 0) {
 				// 向上滚动
-				sectionUp();
+				sectionUp(0);
 			} else {
 				// 向下滚动
-				sectionDown();
+				sectionDown(0);
 			}
 		}
 	}
 }
 
-function sectionDown() {
-	if (maxSection === showSection + 1) {
-		return false;
-	} else {
-		scrollType = false;
-		$(".page-wrap").animate({
-				'top': '-=' + srcollHeight
-			},
-			600,
-			function() {
-				showSection++;
-				scrollType = true;
-		});
-
-		// scrollType = false;
-		// $(".page-wrap").css({
-		// 	'transition' : 'all 600ms',
-		// 	'transform' : "translate3d(" + "0px, " + "-" + srcollHeight + "px, 0px" + ")"
-		// });
+function sectionDown(changeNum) {
+	if(changeNum == 0){
+		if(maxSection === showSection + 1){
+			// 已经是最后一页
+			return false;
+		}else{
+			scrollType = false;
+			$(".page-wrap").animate({
+					'top': '-=' + srcollHeight
+				},
+				600,
+				function() {
+					showSection++;
+					scrollType = true;
+			});
+		}
+	}else{
+		if(changeNum < showSection){
+			sectionUp(changeNum);
+		}else if(changeNum == showSection){
+			// 跳回目前的画面
+			return false;
+		}else{
+			scrollType = false;
+			$(".page-wrap").animate({
+					'top': '-=' + srcollHeight * (changeNum - showSection)
+				},
+				600 * (changeNum - showSection) ,
+				function() {
+					showSection = changeNum;
+					scrollType = true;
+			});
+		}
 	}
+
+	// scrollType = false;
+	// $(".page-wrap").css({
+	// 	'transition' : 'all 600ms',
+	// 	'transform' : "translate3d(" + "0px, " + "-" + srcollHeight + "px, 0px" + ")"
+	// });
 }
 
-function sectionUp() {
-	if (showSection === 0) {
-		return false;
-	} else {
+function sectionUp(changeNum) {
+	if(changeNum == 0){
+		if(showSection === 0){
+			// 已经是第一页
+			return false;
+		}else{
+			scrollType = false;
+			$(".page-wrap").animate({
+					'top': '+=' + srcollHeight
+				},
+				600,
+				function() {
+					showSection--;
+					scrollType = true;
+			});
+		}
+	}else{
 		scrollType = false;
 		$(".page-wrap").animate({
-				'top': '+=' + srcollHeight
+				'top': '+=' + srcollHeight * (showSection - changeNum)
 			},
-			600,
+			600 * (showSection - changeNum) ,
 			function() {
-				showSection--;
+				showSection = changeNum;
 				scrollType = true;
 		});
 	}
@@ -273,5 +310,10 @@ function throttle(fn, delay) {
 };
 
 $(".sec-welcome .more-wrap").on('click', function(event){
-	sectionDown();
+	sectionDown(0);
+});
+
+$(".nav-wrap").on('click', 'li', function(event) {
+	event.preventDefault();
+	sectionDown($(this).index() + 1);
 });

@@ -324,6 +324,19 @@ section{
 	margin-top: 8px;
 }
 
+@-webkit-keyframes 'More' {
+	0% {
+		/*bottom: 10px;*/
+		transform: translateY(10px);
+	}
+	50% {
+		transform: translateY(0px);
+	}
+	100% {
+		transform: translateY(10px);
+	}
+}
+
 .more-wrap{
 	position: absolute;
 	display: block;
@@ -335,11 +348,13 @@ section{
 	font-size: 20px;
 	left: 50%;
 	margin-left: -50px;
-	bottom: 10px;
+	bottom: 20px;
+	-webkit-animation: 'More' 0.7s infinite;
 }
 
 .more-wrap:hover{
 	cursor: pointer;
+	-webkit-animation: none;
 }
 
 .more-wrap div{
