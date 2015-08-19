@@ -98,9 +98,11 @@ function linksChange(){
 	var cssrules = document.styleSheets[1].cssRules || document.styleSheets[1].rules || window.CSSRule.STYLE_RULE;
 	var arr_links = [];
 	for (var i = cssrules.length - 1; i >= 0; i--) {
-		if(cssrules[i].selectorText.indexOf(".links-wrap li:nth-child") > 0){
-			var innerColor = cssrules[i].cssText.sub(cssrules[i].cssText.indexOf(':') + 1, 7);
-			arr_links.push(innerColor);
+		if(cssrules[i].selectorText){
+			if(cssrules[i].selectorText.indexOf(".links-wrap li:nth-child") > 0){
+				var innerColor = cssrules[i].cssText.sub(cssrules[i].cssText.indexOf(':') + 1, 7);
+				arr_links.push(innerColor);
+			}
 		}
 	};
 	console.log(arr_links);
