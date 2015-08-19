@@ -99,9 +99,9 @@ function linksChange(){
 	var arr_links = [];
 	for (var i = cssrules.length - 1; i >= 0; i--) {
 		if(cssrules[i].selectorText){
-			if(cssrules[i].selectorText.indexOf(".links-wrap li:nth-child") > 0){
+			if(cssrules[i].selectorText.indexOf(".links-wrap li:nth-child") == 0){
 				var innerColor = cssrules[i].cssText.sub(cssrules[i].cssText.indexOf(':') + 1, 7);
-				arr_links.push(innerColor);
+				arr_links.unshift(innerColor);
 			}
 		}
 	};
