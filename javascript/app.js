@@ -317,3 +317,15 @@ $(".nav-wrap").on('click', 'li', function(event) {
 	event.preventDefault();
 	sectionDown($(this).index() + 1);
 });
+
+// 技能树页面
+
+var config = {
+	'container' : $('.sec-skilltree .typed-container'),
+	'inputWords' : 'This is my Learning Process:|  · Learn C++, HTML in the first year of college|  · Understand data structure and T-SQL in the following year|  · Begin use C# and ASP.NET to finish the project|  · Now, HTML CSS JavaScript Node.JS, they are my lover ! ',
+	'keyword' : '|',
+	'classStyle' : 'font: normal 22px/2 \"Comic Sans MS\", cursive; color: white;',
+	'borderStyle' : '2px solid white',
+};
+
+$(".sec-skilltree .typed-container").keyboardInput(config);

@@ -400,6 +400,23 @@ section{
 	left: 0;
 }
 
+.center-container{
+	width: 1000px;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.center-container .typed-container{
+	width: 65%;
+	height: 100%;
+}
+
+@keyframes marker{
+	50%{
+		border-color: transparent;
+	}
+}
+
 /* 作品展示页面 */
 .sec-showwork{
 	background-color: #4679D2;
