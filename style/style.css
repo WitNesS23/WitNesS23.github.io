@@ -403,18 +403,18 @@ section{
 .center-container{
 	width: 1000px;
 	height: 100%;
+	position: relative;
 	margin: 0 auto;
 }
 
 .center-container .typed-container{
-	width: 65%;
-	height: 100%;
+	padding-top: 40px;
 }
 
-@keyframes marker{
-	50%{
-		border-color: transparent;
-	}
+.sec-skilltree #canvas-bigwhite{
+	position: absolute;
+	right: 0;
+	bottom: 0;
 }
 
 /* 作品展示页面 */

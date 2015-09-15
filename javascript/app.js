@@ -238,8 +238,7 @@ function sectionDown(changeNum) {
 				},
 				600,
 				function() {
-					showSection++;
-					scrollType = true;
+					scrollPageCallBack(changeNum, false);
 			});
 		}
 	}else{
@@ -255,8 +254,7 @@ function sectionDown(changeNum) {
 				},
 				600 * (changeNum - showSection) ,
 				function() {
-					showSection = changeNum;
-					scrollType = true;
+					scrollPageCallBack(changeNum, false);
 			});
 		}
 	}
@@ -280,8 +278,7 @@ function sectionUp(changeNum) {
 				},
 				600,
 				function() {
-					showSection--;
-					scrollType = true;
+					scrollPageCallBack(changeNum, true);
 			});
 		}
 	}else{
@@ -291,9 +288,20 @@ function sectionUp(changeNum) {
 			},
 			600 * (showSection - changeNum) ,
 			function() {
-				showSection = changeNum;
-				scrollType = true;
+				scrollPageCallBack(changeNum, true);
 		});
+	}
+}
+
+// 翻页效果的回调函数
+function scrollPageCallBack(changeNum, up){
+	scrollType = true;
+	showSection = changeNum == 0 ? (up == true ? showSection - 1 : showSection + 1) : changeNum;
+	switch(showSection){
+		case 1:
+			// 技能树展示页面回调函数
+			skillCallbackFun();
+			break;
 	}
 }
 
@@ -325,7 +333,17 @@ var config = {
 	'inputWords' : 'This is my Learning Process:|  · Learn C++, HTML in the first year of college|  · Understand data structure and T-SQL in the following year|  · Begin use C# and ASP.NET to finish the project|  · Now, HTML CSS JavaScript Node.JS, they are my lover ! ',
 	'keyword' : '|',
 	'classStyle' : 'font: normal 22px/2 \"Comic Sans MS\", cursive; color: white;',
-	'borderStyle' : '2px solid white',
+	'animateInterval' : 100,
+	'blinkInterval' : '0.2s'
 };
 
-$(".sec-skilltree .typed-container").keyboardInput(config);
+var keyboardInputTime = 0;
+
+function skillCallbackFun(){
+	if(keyboardInputTime == 0){
+		$(".sec-skilltree .typed-container").keyboardInput(config);
+		keyboardInputTime++;
+	}
+	eyeBlinkWrap();
+}
+
